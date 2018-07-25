@@ -1,8 +1,8 @@
 //--------------------------------------------------------
 //TASK 1: Add the text 'List of Friends' to .title element  
 //--------------------------------------------------------
-
-
+var h3 = document.querySelector(".title");
+h3.textContent = "List of Friends";
 
 
 //--------------------------------------------------------
@@ -13,7 +13,13 @@
 //--------------------------------------------------------
 
 var friendsList = ['Jimmy G.', 'Scotty M.', 'Patty L.', 'Kelly F.', 'Kitty S.']
+var template = "";
 
+    for(var i = friendsList.length -1 ; i >= 0 ; i-- ) {
+        template += "<li>" + friendsList[i] + "</li>" 
+    }
+var ul = document.querySelector(".friends-list");
+ul.innerHTML = template;
 
 
 //--------------------------------------------------------
@@ -23,3 +29,12 @@ var friendsList = ['Jimmy G.', 'Scotty M.', 'Patty L.', 'Kelly F.', 'Kitty S.']
 //        BONUS: Capitalize AND make bold the elements with
 //               a class of 'urgent' 
 //--------------------------------------------------------
+
+var listUrgent = document.querySelectorAll(".urgent");
+listUrgent = [...listUrgent];
+var template = "";
+
+listUrgent.forEach(function (item) {
+    template = "<strong>" + item.textContent.toUpperCase() + "</strong>";
+    item.innerHTML = template;
+});
